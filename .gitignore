@@ -6,3 +6,4 @@ __pycache__/
 app/app.db
 app/app.db.gz
 app/*.tmp
+app/*.source

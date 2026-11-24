@@ -18,21 +18,26 @@ for key in ("GEMINI_API_KEY", "GROQ_API_KEY", "HF_TOKEN", "DATA_REPO"):
         os.environ[key] = secrets[key]
 
 
-@st.cache_resource(show_spinner="Loading the inbox database (first start only, ~30 s)...")
+@st.cache_resource(ttl=3600, show_spinner="Loading the inbox database (first start only, ~30 s)...")
 def ensure_db():
     local = Path(__file__).parent / "app/app.db"
-    if local.exists():
-        return str(local)
+    if local.exists() and not os.environ.get("HF_TOKEN"):
+        return str(local)  # local development: use the database built by the pipeline
     import gzip
     import shutil
     from huggingface_hub import hf_hub_download
-    gz = hf_hub_download(repo_id=os.environ.get("DATA_REPO", "fpo14/ap-inbox-data"), filename="app.db.gz",
-                         repo_type="dataset", token=os.environ.get("HF_TOKEN"))
+    # hf_hub_download only re-downloads when the remote file changed (cached by revision)
+    gz = Path(hf_hub_download(repo_id=os.environ.get("DATA_REPO", "fpo14/ap-inbox-data"), filename="app.db.gz",
+                              repo_type="dataset", token=os.environ.get("HF_TOKEN")))
+    marker = local.with_suffix(".source")
+    if local.exists() and marker.exists() and marker.read_text() == str(gz.resolve()):
+        return str(local)  # already unpacked this exact version
     local.parent.mkdir(exist_ok=True)
     tmp = local.with_suffix(".tmp")
     with gzip.open(gz, "rb") as src, open(tmp, "wb") as dst:
         shutil.copyfileobj(src, dst)
-    tmp.rename(local)  # atomic: a half-written file is never used
+    tmp.replace(local)  # atomic: a half-written file is never used
+    marker.write_text(str(gz.resolve()))
     return str(local)
 
 
