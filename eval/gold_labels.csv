@@ -3,59 +3,59 @@ document,fil_4xyfltn8,other,,,,"Sales order (GF Distribution/Gramlin), not title
 document,fil_4ybnapqs,invoice,,yes,yes,
 document,fil_4xyirfx0,invoice,,yes,yes,
 email,1f73d7ac-72c5-41ec-8884-b04c39ad576e,payment_reminder,reminder,,,QuickBooks 'payment is due' reminder for inv 469119
-email,20a101f5-a0b0-4e29-8e11-578d1bcc88de,invoice,,n/a,n/a,Vendor reply to PO with invoice attached; no invoice no./total in body ($60 is PO amount)
+email,20a101f5-a0b0-4e29-8e11-578d1bcc88de,invoice,,yes,yes,Vendor reply to PO with invoice attached; no invoice no./total in body ($60 is PO amount)
 document,fil_4xypn2z8,invoice,,yes,yes,
 document,fil_4xymirx0,invoice,,yes,yes,
-email,4cf58d47-b50b-44bc-877f-a80284b3556c,invoice,,no,no,"fields null; Invoice # PO-153063, $2,884.32 visible"
+email,4cf58d47-b50b-44bc-877f-a80284b3556c,invoice,,yes,yes,"fields null; Invoice # PO-153063, $2,884.32 visible"
 document,fil_4xypepzo,invoice,,yes,yes,
 document,fil_4ykc9f4k,other,,,,Medical/cannabis waste manifest
 document,fil_4xyhd6ms,invoice,,yes,yes,
 document,fil_4yk0dj6c,invoice,,yes,yes,
 document,fil_4xynm6hg,invoice,,yes,yes,
 email,11c39095-4179-4424-b442-698afd24d23c,invoice,,yes,yes,
-email,f90617b0-968a-430a-ac70-98ad4a9b956c,invoice,,no,no,Delivery notification with invoice attached; customer Vireo (not an Eaze entity); fields null; 468529 / $540.00 visible
+email,f90617b0-968a-430a-ac70-98ad4a9b956c,invoice,,yes,yes,Delivery notification with invoice attached; customer Vireo (not an Eaze entity); fields null; 468529 / $540.00 visible
 document,fil_4xydy190,invoice,,yes,yes,
 document,fil_4y8i0kes,invoice,,yes,yes,Nabis invoice/manifest
 document,fil_4xype3ys,invoice,,yes,yes,Nabis invoice/manifest
-email,c10cbb41-9369-4fe7-a344-5c015076cb55,invoice,,no,no,fields null; CF00012826 / $495.00 visible
+email,c10cbb41-9369-4fe7-a344-5c015076cb55,invoice,,yes,yes,fields null; CF00012826 / $495.00 visible
 email,d2fe117e-37c5-4aee-91e7-be1cd3ff1f37,invoice,,yes,n/a,
 email,ff94ec99-25f7-44fe-9107-98e0b19ff27b,other,,,,Delivery order shipped notification
 document,fil_4xylqdlg,invoice,,yes,yes,Nabis invoice/manifest
 document,fil_4xykkndg,invoice,,yes,yes,Kiva invoice bundled with COAs
 document,fil_4xyqwcno,other,,,,Distru sales order (SO-0013674) - no INVOICE title/balance; could be treated as invoice
-email,0e507b0f-701c-4078-8f01-be53f324e8f4,invoice,,n/a,n/a,Forwarded Nabis shipping confirmation; attachment is invoice/manifest; empty body
+email,0e507b0f-701c-4078-8f01-be53f324e8f4,invoice,,yes,n/a,Forwarded Nabis shipping confirmation; attachment is invoice/manifest; empty body | field recheck: no amount visible in email (bare forward)
 email,f9975a6e-f113-4c2d-a5cc-355fa3680bd5,invoice,,yes,yes,
 email,6c99d0ee-be56-4a8a-89ee-e89b1cfa00ac,other,,,,Marketing
 document,fil_4xyflyqc,invoice,,yes,yes,
 document,fil_4y9b7uvo,other,,,,METRC transport manifest
-email,b309f346-6b98-4340-b561-7f3477cf1e5d,invoice,,yes,n/a,Nabis shipping confirmation with invoice/manifest attached; order no. 1054509 accepted (doc invoice is 1054509-A)
+email,b309f346-6b98-4340-b561-7f3477cf1e5d,invoice,,yes,n/a,Nabis shipping confirmation with invoice/manifest attached; order no. 1054509 accepted (doc invoice is 1054509-A) | field recheck: no amount visible in email
 document,fil_4xyphct0,other,,,,COA
-email,97083a43-d69d-414c-bd42-55d159bfc2a7,invoice,,no,n/a,Nabis shipping confirmation with invoice/manifest attached; fields null; 1054513 visible
-email,11203085-2068-4a58-b223-39c81c437a9e,invoice,,n/a,n/a,"Forwarded Airgas invoice, empty body"
-email,3596af03-5406-4e84-b458-7b92936976ad,invoice,,no,n/a,"Forwarded with invoice-142036.pdf, empty body; fields null; 142036 visible in attachment name"
+email,97083a43-d69d-414c-bd42-55d159bfc2a7,invoice,,yes,n/a,Nabis shipping confirmation with invoice/manifest attached; fields null; 1054513 visible | field recheck: no amount visible in email
+email,11203085-2068-4a58-b223-39c81c437a9e,invoice,,yes,n/a,"Forwarded Airgas invoice, empty body | field recheck: bare forward; number matches filename; no amount visible"
+email,3596af03-5406-4e84-b458-7b92936976ad,invoice,,yes,n/a,"Forwarded with invoice-142036.pdf, empty body; fields null; 142036 visible in attachment name | field recheck: bare forward; number matches filename; no amount visible"
 document,fil_4xyof5w4,other,,,,COA / lab results
 email,71a99387-e736-428a-83f9-987a94c88721,invoice,,yes,yes,
 email,d58ea9d5-d2d5-4e32-b0bb-729a6e621977,other,,,,Service appointment reminder
-email,5753e992-8fc5-417d-a2c5-dc17b7067884,invoice,,n/a,n/a,Empty forward; only attachment name 244274.pdf - content unknown
+email,5753e992-8fc5-417d-a2c5-dc17b7067884,invoice,,yes,n/a,Empty forward; only attachment name 244274.pdf - content unknown | field recheck: bare forward; number matches filename; no amount visible
 document,fil_4xyhan2s,invoice,,yes,yes,
 email,cd328829-5e86-4187-a0f9-4dda6cff9189,other,,,,Marketing
 email,d5851200-bbb4-4b2b-aeb8-2e859ec5ce8c,other,,,,Marketing
-email,8237c348-b4fc-4e09-91c7-f5476316b266,invoice,,no,no,"fields null; SO-0013569 / $1,000.00 visible"
+email,8237c348-b4fc-4e09-91c7-f5476316b266,invoice,,yes,yes,"fields null; SO-0013569 / $1,000.00 visible"
 document,fil_4xyozs2c,invoice,,yes,yes,"Nabis invoice; also notes required overdue balance $3,545.40"
 document,fil_4xygap1w,other,,,,Recycling brochure
-email,249d0881-da60-4ae3-8435-ae312c2515f8,invoice,,no,n/a,"Forwarded Mammoth invoice, empty body; fields null; SO164618 in subject"
+email,249d0881-da60-4ae3-8435-ae312c2515f8,invoice,,yes,n/a,"Forwarded Mammoth invoice, empty body; fields null; SO164618 in subject | field recheck: bare forward; SO number matches subject; no amount visible"
 email,1297f5a6-1947-4159-b8e4-ec83afb6cd06,other,,,,Service alert
 document,fil_4xymf3tg,invoice,,yes,yes,
 document,fil_4yeqybpw,invoice,,yes,yes,
 document,fil_4y1mp0es,invoice,,yes,yes,
-email,d9b49fae-7f27-4bde-b5bc-aa9457689aad,invoice,,no,n/a,"Mammoth delivery notice; body says sales order attached, attachment named Sales Invoice; fields null; SO164114 in subject"
-email,4110e883-40ad-47be-891b-fba2b0c878c2,invoice,,n/a,n/a,Internal AP forward of 22 Kiva invoice PDFs; no single number/total in text
-email,71b1831e-4b46-41b9-974e-941039260aa1,invoice,,n/a,n/a,Forwarded Universal Plants invoice; number/total not visible in text (filename hints 3616)
-email,8382af24-190a-450d-95dd-b7cce8bf9f24,invoice,,n/a,n/a,Internal AP batch of 12 Kiva invoice PDFs; empty body
+email,d9b49fae-7f27-4bde-b5bc-aa9457689aad,invoice,,yes,n/a,"Mammoth delivery notice; body says sales order attached, attachment named Sales Invoice; fields null; SO164114 in subject | field recheck: no amount visible in email"
+email,4110e883-40ad-47be-891b-fba2b0c878c2,invoice,,n/a,n/a,Internal AP forward of 22 Kiva invoice PDFs; no single number/total in text | field recheck: bulk forward of 22 invoice PDFs; note X-854369.pdf attached but not among extracted numbers (21 of 22)
+email,71b1831e-4b46-41b9-974e-941039260aa1,invoice,,yes,n/a,Forwarded Universal Plants invoice; number/total not visible in text (filename hints 3616) | field recheck: number matches filename; no amount visible
+email,8382af24-190a-450d-95dd-b7cce8bf9f24,invoice,,n/a,n/a,Internal AP batch of 12 Kiva invoice PDFs; empty body | field recheck: bulk forward of 12 invoice PDFs; all 12 filenames have a matching extracted number
 document,fil_4xyi7bys,invoice,,yes,yes,
 document,fil_4xygsdzo,invoice,,yes,yes,
 email,4f1c611b-c687-4841-9af2-1e0aba70b3c8,invoice,,yes,yes,BILL/2026/1455 is Eaze bill ref; vendor invoice # X-854368
-email,d2068fe5-d3fe-49b5-a0c6-cdfdab6bb0b9,invoice,,no,no,Fields null; SO-1037198 / $510.68 visible
+email,d2068fe5-d3fe-49b5-a0c6-cdfdab6bb0b9,invoice,,no,yes,Fields null; SO-1037198 / $510.68 visible | field recheck: email states Invoice # SO-1037198; pipeline has only PO-153399 (PO ref / filename)
 document,fil_4xyl4hqs,other,,,,Lab COA (Excelbis)
 document,fil_4xyhzc5w,invoice,,yes,yes,
 email,26ca4c59-8684-48e2-88ce-2dd5bf26a23c,other,,,,Waste pickup service alert
@@ -63,20 +63,20 @@ document,fil_4xyfl1ec,invoice,,yes,yes,Billed to Budget King LLC (Eaze Sacrament
 document,fil_4xyfku8k,invoice,,yes,yes,
 document,fil_4xyn62z8,invoice,,yes,yes,
 document,fil_4xyfn53o,invoice,,yes,yes,Nabis invoice/manifest; also notes overdue prior balance $448 required before delivery
-email,8dd8bc15-8d2e-4a12-a40e-337b529126c9,invoice,,no,no,Fields null; 6013226007675 / $159.58 visible
+email,8dd8bc15-8d2e-4a12-a40e-337b529126c9,invoice,,yes,yes,Fields null; 6013226007675 / $159.58 visible
 email,7b5c1315-d611-4291-a64f-bf47a6f02bd3,invoice,,yes,yes,
 email,e5ed7c24-cf1b-4a58-bb8d-5fd72b7904f9,invoice,,yes,yes,
-email,2f76140d-b85d-482d-8a54-6c497b999760,invoice,,no,n/a,INV92288 visible only in attachment name; no total in text
+email,2f76140d-b85d-482d-8a54-6c497b999760,invoice,,yes,n/a,INV92288 visible only in attachment name; no total in text | field recheck: number matches filename; no amount visible
 email,7e017506-6abc-4699-97a4-5108679a2bfa,invoice,,yes,yes,
 email,1a4ba218-21aa-4838-b7f5-a0652916b9c8,invoice,,n/a,n/a,Internal forward of Minnesota Paid Leave 'Notice of Amount Due' (state contribution bill); only filename visible - could be past-due notice
 document,fil_4y3w2x3o,invoice,,yes,yes,
 document,fil_4xyhqgb8,invoice,,yes,yes,
-email,37557a95-0230-43cb-8e4c-329b529501cf,invoice,,no,no,"Fields null; SO-073116 / $4,290.00 visible"
+email,37557a95-0230-43cb-8e4c-329b529501cf,invoice,,yes,yes,"Fields null; SO-073116 / $4,290.00 visible"
 email,8d1568d6-3be2-412d-a19b-69c808b872bd,other,,,,Fwd shipping confirmation + COAs; attached Nabis order PDF may contain invoice but item is a shipping notice
 document,fil_4yc245zo,invoice,,yes,yes,Invoice copy stamped Overdue (due 08/28/2026); could be read as past-due reminder
 email,6851f30f-8155-4263-9ed4-f18e5ac51bcb,invoice,,yes,yes,
-email,58ddfc9e-04a9-456a-b73f-a718b7a61f58,invoice,,no,n/a,"Fields null; invoice 217904 visible, no total in text; Open_AR.pdf also attached"
-email,3bcd0111-bcfc-4af6-bd02-5402452150b1,invoice,,no,no,Fields null; X-854418 / $380.28 visible
+email,58ddfc9e-04a9-456a-b73f-a718b7a61f58,invoice,,yes,n/a,"Fields null; invoice 217904 visible, no total in text; Open_AR.pdf also attached | field recheck: no amount visible in email"
+email,3bcd0111-bcfc-4af6-bd02-5402452150b1,invoice,,yes,yes,Fields null; X-854418 / $380.28 visible
 document,fil_4y8f8a1g,invoice,,yes,yes,
 document,fil_4xypupec,other,,,,Visible text is lab COAs (Encore Labs); filename suggests SO packet but no invoice content in text
 document,fil_4xyivu38,invoice,,yes,yes,Order number SO-072427 is the invoice identifier
@@ -84,37 +84,37 @@ document,fil_4yhvcg0k,other,,,,Pro-forma invoice (STIIIZY/Ironworks)
 document,fil_4xygtous,invoice,,yes,yes,
 email,d16b95bb-7fbb-466e-a09d-0e5b1c2d681f,remittance,,,,FPL payment confirmation $537.24
 email,6cb90aa6-63da-414d-92a7-41873b634eae,other,,,,Marketing
-email,224027dd-418c-428c-86b5-405a5e4a5447,invoice,,no,n/a,"Two invoices (CH00017982, CF00013722) in attachment names; fields null; no total in text"
-email,eead8c6b-7cd1-40bc-b232-6a8e945b3829,invoice,,n/a,n/a,Internal AP batch of 6 mixed invoice PDFs
-email,96c1744a-36be-465b-8359-642a59a92971,invoice,,no,no,"Fields null; 1047680-A, 1047681-A / $1,734.00 combined visible"
+email,224027dd-418c-428c-86b5-405a5e4a5447,invoice,,yes,yes,"Two invoices (CH00017982, CF00013722) in attachment names; fields null; no total in text | field recheck: two invoices (CH00017982 + CF00013722) both captured; 1360+1170 = PO amount 2530"
+email,eead8c6b-7cd1-40bc-b232-6a8e945b3829,invoice,,n/a,n/a,Internal AP batch of 6 mixed invoice PDFs | field recheck: bulk forward of 6 unrelated invoice PDFs; all filenames have a matching extracted number
+email,96c1744a-36be-465b-8359-642a59a92971,invoice,,yes,yes,"Fields null; 1047680-A, 1047681-A / $1,734.00 combined visible | field recheck: two invoices both captured; 804+930 = stated 1734"
 document,fil_4xyfdq38,invoice,,yes,yes,"Nabis invoice; notes required overdue balance $8,223.24"
 document,fil_4xyi1a8k,invoice,,yes,yes,LeafLink invoice keyed by Order # 141704
 document,fil_4xyfktn8,invoice,,yes,yes,
 document,fil_4y6yh9xw,invoice,,yes,yes,
-email,e32e6d27-1fae-4805-a180-5cb9b5fb3e83,invoice,,n/a,n/a,Sign vendor order confirmation requesting 50% deposit with down-payment invoice attached; could be 'other' (order confirmation)
+email,e32e6d27-1fae-4805-a180-5cb9b5fb3e83,invoice,,yes,n/a,Sign vendor order confirmation requesting 50% deposit with down-payment invoice attached; could be 'other' (order confirmation) | field recheck: down-payment invoice for SO 326688; no amount visible to check 9063.13
 email,d0a57bf5-2869-454d-a72c-889675f138e2,payment_reminder,reminder,,,"Friendly reminder, payment due 9/21"
 document,fil_4xyqc9g4,invoice,,yes,yes,Invoice copy stamped Overdue (due 08/25/2026)
 email,b7832f1d-2ddc-48b7-848c-636e27c26f0b,other,,,,Account security notification
 document,fil_4ye8lpas,invoice,,yes,yes,
-email,df1d3325-e73c-469c-86f3-896dc21181a8,invoice,,no,no,Fields null; 1054600 / $582.75 visible
-email,c82c0ef0-3b6a-4225-bdc4-1418f526a1c1,invoice,,no,no,Fields null; X-849108 / $832.00 visible
-email,162d249b-3df6-4223-8c4a-c3cd01df1ed1,invoice,,n/a,n/a,Internal AP batch of 16 vendor invoice PDFs
+email,df1d3325-e73c-469c-86f3-896dc21181a8,invoice,,no,yes,Fields null; 1054600 / $582.75 visible | field recheck: email states Invoice # 1054600; pipeline has 1054840-A (amount matches)
+email,c82c0ef0-3b6a-4225-bdc4-1418f526a1c1,invoice,,yes,yes,Fields null; X-849108 / $832.00 visible
+email,162d249b-3df6-4223-8c4a-c3cd01df1ed1,invoice,,n/a,n/a,Internal AP batch of 16 vendor invoice PDFs | field recheck: bulk forward of 16 invoice PDFs; GRAV/Trillium/NC filenames matched; SO165136 extracted twice (3 Mammoth sales invoices unnamed)
 document,fil_4xypupck,other,,,,METRC transportation manifest
 document,fil_4ykbs2j8,invoice,,yes,yes,"Cintas invoice, total 825.31"
 document,fil_4xyk1j84,invoice,,yes,yes,Nabis delivery invoice
 document,fil_4xyjaris,invoice,,yes,yes,Kiva invoice OCR
 document,fil_4y1py710,invoice,,yes,yes,Nabis invoice; notes previous overdue invoice but doc is an invoice
 document,fil_4y1py6z8,invoice,,yes,yes,Nabis invoice
-email,9be086a7-5a99-49ba-add8-a2e8f7b1e0a6,invoice,,no,no,"Stachs invoice notice; inv 098169 $2,250 visible but not extracted"
+email,9be086a7-5a99-49ba-add8-a2e8f7b1e0a6,invoice,,yes,yes,"Stachs invoice notice; inv 098169 $2,250 visible but not extracted"
 document,fil_4xykxcb8,invoice,,yes,yes,Mammoth invoice; only doc number is SO164097
 document,fil_4xzanb9w,other,,,,Lab COA
-email,15cbbf42-a135-4921-8d60-cfeff3cd2350,invoice,,no,no,QuickBooks invoice INV-1052352 $518 not extracted
-email,1bcb6360-6541-4612-b34e-ff4e95f94a46,invoice,,no,no,"Stachs invoice notice INV-0011547 $1,735.92 not extracted"
+email,15cbbf42-a135-4921-8d60-cfeff3cd2350,invoice,,yes,yes,QuickBooks invoice INV-1052352 $518 not extracted
+email,1bcb6360-6541-4612-b34e-ff4e95f94a46,invoice,,yes,yes,"Stachs invoice notice INV-0011547 $1,735.92 not extracted"
 document,fil_4xyqbsyc,invoice,,yes,yes,QuickBooks invoice stamped Overdue; still the invoice itself
 email,6f9ff206-95ee-42f6-aac7-8f747232b7a8,payment_reminder,escalation,,,"CSC severe past due balance, 6 invoices"
-email,2d9c6cbb-e217-4a27-8d32-c14e0f7f294f,invoice,,no,no,"Wyld updated invoice SO-069415 $1,730 not extracted"
+email,2d9c6cbb-e217-4a27-8d32-c14e0f7f294f,invoice,,yes,yes,"Wyld updated invoice SO-069415 $1,730 not extracted"
 document,fil_4xyln0us,other,,,,Lab COA
-email,74a7b489-1c2c-49d4-856b-2357560bf9ef,invoice,,n/a,n/a,"Internal AP forward of ~18 invoice/PO PDFs, no body; multiple invoices"
+email,74a7b489-1c2c-49d4-856b-2357560bf9ef,invoice,,n/a,n/a,"Internal AP forward of ~18 invoice/PO PDFs, no body; multiple invoices | field recheck: bulk forward of 18 invoice PDFs"
 document,fil_4yhn00yc,other,,,,Sales order (not invoice)
 email,7bc82011-969a-4213-a747-65a46240b0f0,payment_reminder,reminder,,,"QuickBooks reminder: payment not received, due on receipt; polite"
 document,fil_4xymlec4,invoice,,yes,yes,Invoice no. printed as PO-150745
@@ -123,31 +123,31 @@ document,fil_4xyorztg,invoice,,yes,yes,Nabis invoice
 document,fil_4ygxzi50,invoice,,yes,yes,Nabis invoice
 email,d080daa4-3f9c-4526-8485-ed9bfef1caf8,statement,,,,Account statement from collections dept
 document,fil_4xygsd90,invoice,,yes,yes,Claybourne invoice
-email,4a25a2db-4005-4811-aefd-76daf1b42986,invoice,,n/a,n/a,Fwd of 3 invoices due 9/15; multiple invoices
+email,4a25a2db-4005-4811-aefd-76daf1b42986,invoice,,yes,n/a,Fwd of 3 invoices due 9/15; multiple invoices | field recheck: three invoices 10121/10122/10123 all captured; no amounts visible
 document,fil_4xypxo7o,invoice,,yes,yes,"Zoom invoice already paid (balance 0); total 1,589.39"
-email,0d84521c-6ce1-48af-8769-fc954a6b5a35,invoice,,n/a,n/a,"Fwd Airgas invoicing, empty body"
+email,0d84521c-6ce1-48af-8769-fc954a6b5a35,invoice,,yes,n/a,"Fwd Airgas invoicing, empty body | field recheck: bare forward; number matches filename; no amount visible"
 email,17901f86-30d4-4411-82da-cea27b3a21d2,remittance,,,,Eaze AP confirms invoices 1590/1591 paid; thread contains vendor past-due chasing
-email,c937122f-a441-4ec1-be63-3a8f8baec843,invoice,,yes,n/a,Nabis shipping confirmation with invoice/manifest attached; no amount in body
+email,c937122f-a441-4ec1-be63-3a8f8baec843,invoice,,yes,n/a,Nabis shipping confirmation with invoice/manifest attached; no amount in body | field recheck: no amount visible in email
 document,fil_4xykxel0,invoice,,yes,yes,Nabis invoice; brand contact is EAZE (intercompany-like)
-email,97c4a747-ee1c-4091-9d44-7d92cf8b312b,invoice,,no,no,"Thomson Reuters invoice 854074344 $2,229.18 not extracted"
+email,97c4a747-ee1c-4091-9d44-7d92cf8b312b,invoice,,yes,yes,"Thomson Reuters invoice 854074344 $2,229.18 not extracted"
 document,fil_4xyrdjo4,invoice,,yes,yes,Nabis invoice
 document,fil_4xyq1yms,invoice,,yes,yes,Sunderstorm invoice
 document,fil_4ykdp7ys,invoice,,yes,yes,Nabis invoice
 document,fil_4xyrb51w,invoice,,yes,yes,Kiva invoice plus COA pages
 document,fil_4xyrekpg,invoice,,no,no,"OCR scan of Nabis invoice, order 1030006, total $1,228 not extracted"
-email,40d9756a-6835-4233-8960-d891d814d8da,invoice,,no,no,"Stachs invoice notice SO163577 $2,976.50 not extracted"
+email,40d9756a-6835-4233-8960-d891d814d8da,invoice,,yes,yes,"Stachs invoice notice SO163577 $2,976.50 not extracted"
 document,fil_4xyfo07o,other,,,,Eaze purchase order
-email,23486abd-d9db-4f7c-8f11-33c98937386f,invoice,,no,n/a,Sunderstorm invoice 220198 delivery email; no amount in body
+email,23486abd-d9db-4f7c-8f11-33c98937386f,invoice,,yes,n/a,Sunderstorm invoice 220198 delivery email; no amount in body | field recheck: no amount visible in email
 document,fil_4xykxct0,invoice,,yes,yes,K1 Packaging invoice plus BOL and packing list
 document,fil_4xyfij10,invoice,,yes,yes,Canix invoice
 document,fil_4xye7ris,invoice,,yes,yes,Kiva invoice
 email,ea7facbb-7a9d-4dea-b606-bc81a6ab8043,invoice,,yes,yes,WM new invoice; invoice amount 174.96 (account balance 349.92)
-email,166a4af0-7a44-42b3-a80d-ef001f0abeaa,invoice,,no,no,"Stachs invoice notice IN-08613 $1,056 not extracted"
+email,166a4af0-7a44-42b3-a80d-ef001f0abeaa,invoice,,yes,yes,"Stachs invoice notice IN-08613 $1,056 not extracted"
 document,fil_4xyre8us,invoice,,yes,no,"Claybourne invoice total $9,161 not extracted"
-email,b354627a-df01-48c2-8f3b-dc90b1a471f5,invoice,,n/a,n/a,Fwd contractor monthly invoice (DR - 317 / Order #91); no number/amount clearly stated
-email,d4d879f3-e822-44d6-abfd-380fa4a2f0e9,invoice,,n/a,n/a,"Internal AP forward of multiple Nabis invoice PDFs, no body"
+email,b354627a-df01-48c2-8f3b-dc90b1a471f5,invoice,,yes,n/a,Fwd contractor monthly invoice (DR - 317 / Order #91); no number/amount clearly stated | field recheck: number 317 matches filename 'DR - 317'; no amount visible
+email,d4d879f3-e822-44d6-abfd-380fa4a2f0e9,invoice,,n/a,n/a,"Internal AP forward of multiple Nabis invoice PDFs, no body | field recheck: bulk forward of 18 invoice PDFs (many unnamed scans)"
 document,fil_4xyi3avo,invoice,,yes,yes,Persona invoice
-email,b93060d0-a8a8-4502-9168-35adceb17b15,invoice,,no,no,Invoice 50593 $375 not extracted
+email,b93060d0-a8a8-4502-9168-35adceb17b15,invoice,,yes,yes,Invoice 50593 $375 not extracted
 document,fil_4xymskpg,other,,,,Lab COA
 document,fil_4y6y87is,invoice,,yes,yes,
 document,fil_4xyrdrtg,invoice,,yes,yes,invoice no. is PO-152145 per document
@@ -156,46 +156,46 @@ email,f553a9e6-3cde-4bce-b50d-1e1dd4e41ccb,invoice,,no,yes,invoice # is SO165488
 email,2d8fd12c-98a2-4431-aea8-8324dc036e96,payment_reminder,escalation,,,QuickBooks invoice email stating 28 days overdue
 document,fil_4y12a8wk,other,,,,Metrc transport manifest
 document,fil_4y768xp0,other,,,,Metrc transport manifest
-email,a7b86e1c-8980-43fe-af4a-d3b9fe5a6320,invoice,,n/a,n/a,"AP forward of two invoice PDFs, empty body"
-email,ced92142-3ab2-4081-afdd-6124ecca110d,invoice,,no,n/a,Mammoth invoice + COAs delivery email; SO164075; no amount in body
+email,a7b86e1c-8980-43fe-af4a-d3b9fe5a6320,invoice,,yes,n/a,"AP forward of two invoice PDFs, empty body | field recheck: two invoices 215972/215973 both captured; no amounts visible"
+email,ced92142-3ab2-4081-afdd-6124ecca110d,invoice,,yes,n/a,Mammoth invoice + COAs delivery email; SO164075; no amount in body | field recheck: no amount visible in email
 email,be861660-8435-4b10-b071-ba3ddb6850c6,remittance,,,,FPL payment confirmation
 document,fil_4y50xgwk,invoice,,yes,yes,
 document,fil_4xyo911w,invoice,,yes,no,"total $4,561.68 not extracted"
 document,fil_4xymf3mc,invoice,,yes,yes,OCR noise
-email,328a9bfa-74d2-42da-9336-dabfd4ded740,invoice,,no,no,"Stachs invoice notice X-846052 $1,340.00; fields null"
+email,328a9bfa-74d2-42da-9336-dabfd4ded740,invoice,,yes,yes,"Stachs invoice notice X-846052 $1,340.00; fields null"
 email,1d7f3586-d0a9-49c4-b9fd-a821daafb188,other,,,,Eaze AP reply 'received and scheduled' on landlord rent/CAM thread; quoted content is a CAM billing request
 document,fil_4xyicmqc,invoice,,yes,yes,
-email,43e32690-87f6-4225-b47c-6da8f27f0ca2,invoice,,no,n/a,Nabis shipping confirmation delivering invoice/manifest + COAs; order 1058922
+email,43e32690-87f6-4225-b47c-6da8f27f0ca2,invoice,,yes,n/a,Nabis shipping confirmation delivering invoice/manifest + COAs; order 1058922 | field recheck: no amount visible in email
 email,1badbd09-53fc-40f3-bc4e-ba975bf4c59d,other,,,,bank NACHA notification of change report
 document,fil_4xypf4yc,invoice,,yes,yes,LeafLink order # used as invoice number
-email,c4f7e6cc-753e-4b28-b259-13d13583c9d6,invoice,,no,n/a,Mammoth invoice + COAs delivery email; SO165135; no amount in body
+email,c4f7e6cc-753e-4b28-b259-13d13583c9d6,invoice,,yes,n/a,Mammoth invoice + COAs delivery email; SO165135; no amount in body | field recheck: no amount visible in email
 document,fil_4y73yems,invoice,,yes,yes,OCR noise
-email,a33ceff9-c027-4182-ac77-6de44c908a57,invoice,,no,no,"Stachs invoice notice 1031777 $1,143.40; fields null"
-email,37fb0b67-3242-45a6-95e4-1ca1db94d585,invoice,,no,n/a,Mammoth invoice + COAs delivery email; SO165519; no amount in body
-email,e78f215e-64dd-4bab-b4c6-b3ae2b1a951b,invoice,,no,no,IN-08665 $879.90; fields null
-email,cbd0a5af-c886-48ac-bb6c-50745a9d4218,invoice,,no,no,QuickBooks 'needs your attention' without overdue language; PO-150745 $377.40; fields null
-email,991152b9-8cd9-4670-a0ca-65b8a872f710,invoice,,n/a,n/a,"AP forward of 19 Trillium invoices, no body"
-email,a1df3193-c60c-4306-bbc2-70cdd93be98d,invoice,,no,no,"Stachs invoice notice 1042703-A $1,781.22; fields null"
+email,a33ceff9-c027-4182-ac77-6de44c908a57,invoice,,yes,no,"Stachs invoice notice 1031777 $1,143.40; fields null | field recheck: email states amount $1143.40; pipeline has 1001.50"
+email,37fb0b67-3242-45a6-95e4-1ca1db94d585,invoice,,yes,n/a,Mammoth invoice + COAs delivery email; SO165519; no amount in body | field recheck: no amount visible in email
+email,e78f215e-64dd-4bab-b4c6-b3ae2b1a951b,invoice,,yes,yes,IN-08665 $879.90; fields null
+email,cbd0a5af-c886-48ac-bb6c-50745a9d4218,invoice,,yes,yes,QuickBooks 'needs your attention' without overdue language; PO-150745 $377.40; fields null
+email,991152b9-8cd9-4670-a0ca-65b8a872f710,invoice,,n/a,n/a,"AP forward of 19 Trillium invoices, no body | field recheck: bulk forward of 19 Trillium invoice PDFs; all filenames matched"
+email,a1df3193-c60c-4306-bbc2-70cdd93be98d,invoice,,yes,yes,"Stachs invoice notice 1042703-A $1,781.22; fields null"
 document,fil_4ybpg6hg,invoice,,yes,yes,Nabis invoice/packing
 document,fil_4xyih45w,invoice,,yes,yes,"Microsoft invoice, auto-charged to card"
 document,fil_4xyefexg,invoice,,yes,yes,
 document,fil_4xygy5hw,other,,,,Metrc transport manifest
-email,172301df-829d-470a-8b3b-5112cec06df2,invoice,,no,no,"Stachs invoice notice X-849109 $3,643.80; fields null"
-email,d64cfe53-3b9d-4270-867b-31a0cf351360,invoice,,no,no,"Invoice 3708 $11,148.00; fields null"
+email,172301df-829d-470a-8b3b-5112cec06df2,invoice,,yes,no,"Stachs invoice notice X-849109 $3,643.80; fields null | field recheck: email states amount $3643.80; pipeline has 4324.00"
+email,d64cfe53-3b9d-4270-867b-31a0cf351360,invoice,,yes,yes,"Invoice 3708 $11,148.00; fields null"
 document,fil_4xyorrys,invoice,,yes,yes,
 document,fil_4xyf9spg,invoice,,yes,yes,
 document,fil_4yhcgiqc,invoice,,yes,yes,OCR noise
-email,b0b8f712-1816-42c5-bd8b-6421569168d8,invoice,,n/a,n/a,"AP forward of 3 invoices from different vendors, no body"
-email,99e6c358-1ee5-4f2f-8ca3-8b553528644e,invoice,,no,n/a,Nabis shipping confirmation delivering invoice/manifest + COAs; order 1036119
+email,b0b8f712-1816-42c5-bd8b-6421569168d8,invoice,,yes,n/a,"AP forward of 3 invoices from different vendors, no body | field recheck: three invoices (179702/14882/S2692707) all captured; no amounts visible"
+email,99e6c358-1ee5-4f2f-8ca3-8b553528644e,invoice,,yes,n/a,Nabis shipping confirmation delivering invoice/manifest + COAs; order 1036119 | field recheck: no amount visible in email
 document,fil_4xydycwk,invoice,,no,no,"invoice 49481 $7,309.00; fields null"
 document,fil_4y77exp0,invoice,,yes,yes,
-email,7aa30af4-5b99-4501-9565-6b954a5ce85a,invoice,,n/a,n/a,vendor sends two invoices for PO-153893 in reply to PO email
+email,7aa30af4-5b99-4501-9565-6b954a5ce85a,invoice,,yes,n/a,vendor sends two invoices for PO-153893 in reply to PO email | field recheck: two invoices both captured; sum 1490 vs PO 1560 but an item was removed so cannot verify
 document,fil_4yb2wrmc,other,,,,product marketing flyer
-email,855ee7f5-3d27-4a5e-a653-ef120641b721,invoice,,no,n/a,"AP forward of Wyld invoice SO-072784, empty body"
-email,56435775-0dfc-4385-b853-548c3b0bf202,invoice,,no,n/a,"AP forward of Nabis shipping confirmation (invoice/manifest) 1042354, empty body"
+email,855ee7f5-3d27-4a5e-a653-ef120641b721,invoice,,yes,n/a,"AP forward of Wyld invoice SO-072784, empty body | field recheck: bare forward; number matches subject; no amount visible"
+email,56435775-0dfc-4385-b853-548c3b0bf202,invoice,,yes,n/a,"AP forward of Nabis shipping confirmation (invoice/manifest) 1042354, empty body | field recheck: bare forward; number matches subject; no amount visible"
 email,c33b392f-c502-471f-82d4-aa6861e4041f,other,,,,"HVAC maintenance scheduling reminder, not a payment reminder"
 document,fil_4y1af07o,invoice,,yes,yes,
-email,cc4d1503-1cf1-4048-bc04-54c86c27ae22,invoice,,no,n/a,Nabis shipping confirmation delivering invoice/manifest + COAs; order 1058877
+email,cc4d1503-1cf1-4048-bc04-54c86c27ae22,invoice,,yes,n/a,Nabis shipping confirmation delivering invoice/manifest + COAs; order 1058877 | field recheck: no amount visible in email
 email,502c9c96-0ef9-44cc-97bf-4a58131c2606,statement,,,,Workday statement of account
 document,fil_4xyq3el0,invoice,,yes,yes,OCR noise
-email,68f8898c-912c-4dd4-bbe3-c988b6b7c838,invoice,,n/a,n/a,"AP forward of 18 Kiva invoice PDFs, no substantive body"
+email,68f8898c-912c-4dd4-bbe3-c988b6b7c838,invoice,,n/a,n/a,"AP forward of 18 Kiva invoice PDFs, no substantive body | field recheck: bulk forward of 18 invoice PDFs; all filenames matched"

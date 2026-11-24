@@ -11,6 +11,9 @@ attached to them). It:
 - **never fails silently**: unreadable or missing files, low confidence and unprocessed items are recorded and
   reported, and accuracy is measured against a hand-checked gold set.
 
+**Measured accuracy** (200-item gold set): 95% label accuracy, 99% invoice precision / 94% recall,
+invoice number 97% and total 95% correct – details in [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#6-results).
+
 Built to run for **$0**: local processing + free Gemini and Groq tiers + free Streamlit Community Cloud hosting.
 
 ## How it works (one picture)

@@ -127,14 +127,41 @@ A slim read-only SQLite file for the hosted agent: results tables, email bodies 
 | All chat models rate-limited | agent | explicit "rate-limited, retry in a minute" message |
 | "How accurate are you?" | eval → `accuracy` table | measured numbers with confidence intervals |
 
-## 6. Cost
+## 6. Results
+
+**Coverage:** all 5,705 emails and 8,554 attachments have a label. Decided by: rules 7,695 · classifier 389 ·
+LLM 6,164 · unreadable file 11. 82 attachments are missing from the export and 11 files could not be read
+(9 password-protected, 2 blank) – all listed in `problem_files`.
+
+**Accuracy** on a 200-item random gold set (100 emails + 100 unique attachments), 95% confidence intervals:
+
+| Metric | Result |
+|---|---|
+| Label accuracy, all items | 95.0% (91–97%) |
+| … emails / attachments | 92.0% / 98.0% |
+| … decided by rules / classifier / LLM | 100% (101/101) / 100% (10/10) / 88.8% (79/89) |
+| … confidence ≥ 0.8 / < 0.8 | 96.4% (196 items) / 25% (4 items) – confidence is a useful warning signal |
+| Invoice precision / recall | 99.3% / 94.2% |
+| Invoice number correct / total correct | 96.6% (142/147) / 94.9% (112/118) |
+| Payment reminders: precision, recall, dunning level | 5/5 each – too few in the sample to be conclusive |
+
+Most label errors are definitional, not misreadings: internal AP forwards carrying a batch of invoice PDFs and
+Nabis "shipping confirmation" emails were labelled `other` by the pipeline and `invoice` in the gold set.
+
+**How the gold set was made (be explicit about this):** labels were produced by independent Claude sub-agents that
+saw each item's text but not the pipeline's answer; extracted invoice fields were revealed only after labelling,
+to verify them. A human then spot-checks a subset (`eval/spot_check.md`: all disagreements + 10 random agreements).
+This is a model-labelled, human-spot-checked gold set, not a fully human-labelled one. To re-label by hand, use
+`python -m eval.label_app` and re-run `python -m eval.evaluate`.
+
+## 7. Cost
 
 Everything runs on free tiers: local CPU for extraction/OCR/rules/classifier; Gemini free tier for the LLM steps
 (~6,000 items in batches); Groq + Gemini free tiers for chat; Streamlit Community Cloud for hosting (Hugging Face Spaces now requires PRO for Python apps); a private Hugging Face dataset for the database file; GitHub.
 The price of $0 is time (the LLM pass is rate-limited to roughly an hour or two) and chat rate limits under load.
 Switching to a paid model is a configuration change (`LLM_MODELS`, `CHAT_MODELS`).
 
-## 7. Known limitations and next steps
+## 8. Known limitations and next steps
 
 - Free-tier models are weaker than frontier models on messy OCR; the measured accuracy shows where.
 - Vendor names are normalised by simple rules; a distributor (Nabis, Kiva) and the brand on the invoice can differ.
