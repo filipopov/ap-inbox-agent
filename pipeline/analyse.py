@@ -10,6 +10,7 @@ Tables produced:
 import json
 import re
 import sqlite3
+from collections import Counter
 from datetime import date
 
 from pipeline.llm import DB
@@ -25,6 +26,45 @@ def norm_vendor(name):
     s = re.sub(SUFFIXES, " ", s)
     s = re.sub(r"[^a-z0-9]+", " ", s).strip()
     return s or None
+
+
+INTERNAL_DOMAIN = "eaze.com"
+PLATFORM_MIN_VENDORS = 4  # a sender address used for this many different vendors is a billing platform
+
+
+def vendor_aliases(triples):
+    """Merge vendor names that arrive from the same sender address ("FPL" / "Florida Power & Light Company").
+    triples: (vendor_key, vendor_name, sender_address). Addresses shared by many vendors (billing platforms such as
+    Bill.com) are ignored. Returns {vendor_key: (canonical_name, canonical_key)}."""
+    by_addr, names = {}, {}
+    for vk, name, addr in triples:
+        if vk:
+            names.setdefault(vk, Counter())[name] += 1
+            if addr:
+                by_addr.setdefault(addr, set()).add(vk)
+    parent = {vk: vk for vk in names}
+
+    def find(x):
+        while parent[x] != x:
+            parent[x] = parent[parent[x]]
+            x = parent[x]
+        return x
+
+    for keys in by_addr.values():
+        if 1 < len(keys) < PLATFORM_MIN_VENDORS:
+            first, *rest = sorted(keys)
+            for k in rest:
+                parent[find(k)] = find(first)
+    clusters = {}
+    for vk in names:
+        clusters.setdefault(find(vk), []).append(vk)
+    out = {}
+    for members in clusters.values():
+        total = sum((names[m] for m in members), Counter())
+        name = total.most_common(1)[0][0]
+        for m in members:
+            out[m] = (name, norm_vendor(name))
+    return out
 
 
 def norm_invoice_no(n):
@@ -82,14 +122,20 @@ def main():
     # message context (for attachments: the first email that carried them)
     msg_of = dict(db.execute("SELECT file_id, min(message_id) FROM attachments WHERE message_id IS NOT NULL GROUP BY 1"))
     sent = dict(db.execute("SELECT id, sent_at FROM messages"))
-    sender = dict(db.execute("SELECT id, from_name FROM messages WHERE is_inbound"))
+    # external senders only: Eaze's own AP team forwards mail and is never the vendor
+    sender = {i: (n, a) for i, n, a in db.execute("SELECT id, from_name, from_email FROM messages WHERE is_inbound")
+              if a and not a.endswith(INTERNAL_DOMAIN)}
+    labelled = []
     for kind, iid, label, level, conf, by, ev, flags, vendor in rows:
         mid = iid if kind == "email" else msg_of.get(iid)
-        if not vendor and label != "other" and sender.get(mid):
-            vendor = sender[mid]  # fallback: the email sender's display name
+        if not vendor and label != "other" and mid in sender:
+            vendor = sender[mid][0]  # fallback: the email sender's display name
             flags = "; ".join(filter(None, [flags, "vendor taken from email sender"]))
-        db.execute("INSERT INTO final_labels VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
-                   (kind, iid, label, level, conf, by, ev, flags, vendor, norm_vendor(vendor), mid, sent.get(mid)))
+        labelled.append([kind, iid, label, level, conf, by, ev, flags, vendor, norm_vendor(vendor), mid, sent.get(mid)])
+    canon = vendor_aliases([(r[9], r[8], sender.get(r[10], (None, None))[1]) for r in labelled])
+    for r in labelled:
+        r[8], r[9] = canon.get(r[9], (r[8], r[9]))
+        db.execute("INSERT INTO final_labels VALUES (?,?,?,?,?,?,?,?,?,?,?,?)", r)
 
     # invoices with sanity checks against the source text
     texts = dict(db.execute("SELECT file_id, text FROM documents"))
@@ -119,7 +165,8 @@ def main():
         if inv.get("invoice_date") and inv.get("due_date") and inv["due_date"] < inv["invoice_date"]:
             checks.append("due date before invoice date")
         db.execute("INSERT INTO invoices VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)", (
-            kind, iid, iid if kind == "email" else msg_of.get(iid), a.get("vendor"), norm_vendor(a.get("vendor")),
+            kind, iid, iid if kind == "email" else msg_of.get(iid),
+            *canon.get(norm_vendor(a.get("vendor")), (a.get("vendor"), norm_vendor(a.get("vendor")))),
             inv.get("invoice_number"), norm_invoice_no(inv.get("invoice_number")), inv.get("invoice_date"),
             inv.get("due_date"), amt, inv.get("currency"), inv.get("po_number"), a["confidence"],
             "; ".join(checks) or "ok"))

@@ -11,12 +11,12 @@ attached to them). It:
 - **never fails silently**: unreadable or missing files, low confidence and unprocessed items are recorded and
   reported, and accuracy is measured against a hand-checked gold set.
 
-Built to run for **$0**: local processing + free Gemini and Groq tiers + free Hugging Face hosting.
+Built to run for **$0**: local processing + free Gemini and Groq tiers + free Streamlit Community Cloud hosting.
 
 ## How it works (one picture)
 
 ```
- OFFLINE, once (on a laptop)                                              ONLINE (Hugging Face Space)
+ OFFLINE, once (on a laptop)                                              ONLINE (Streamlit Cloud)
  ───────────────────────────                                              ───────────────────────────
  ap_inbox.sql ─┐                                                           user question
  attachments ──┴► 1 ingest ─► 2 extract text ─► 3 classify (cascade) ─►     │
@@ -42,12 +42,13 @@ Full explanation, design decisions and trade-offs: **[docs/ARCHITECTURE.md](docs
 | `agent/tools.py` | The agent's read-only tools |
 | `agent/agent.py` | Tool-calling loop with free-tier model fallback |
 | `agent/mcp_server.py` | Same tools as an MCP server |
-| `app.py` | Web chat (Gradio) – the Hugging Face Space entry point |
+| `streamlit_app.py` | Web chat – the Streamlit Community Cloud entry point (downloads `app.db` from a private Hugging Face dataset) |
 
 ## Run it
 
 Requirements: Python 3.11+, `tesseract` (for OCR, e.g. `brew install tesseract`), free API keys
 (see `.env.example`): `GEMINI_API_KEY` (pipeline + chat) and `GROQ_API_KEY` (chat fallback).
+The hosted app also needs `HF_TOKEN` (read access to the private dataset holding `app.db`).
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
@@ -67,9 +68,20 @@ python -m eval.label_app                  # 5  label the gold set in the browser
 python -m eval.evaluate                   # 5  accuracy
 python -m pipeline.build_app_db           # 6  app/app.db
 
-python app.py                             # web chat on http://127.0.0.1:7860
+streamlit run streamlit_app.py            # web chat on http://localhost:8501
 python -m agent.cli                       # terminal chat
 python -m agent.mcp_server                # MCP server (stdio) for Claude Desktop / Claude Code
 ```
 
 The data itself (`data/`, `app/app.db`) is not in this repository.
+
+## Deploy (Streamlit Community Cloud, free)
+
+1. Upload `app/app.db` to a private Hugging Face dataset (default `fpo14/ap-inbox-data`, override with `DATA_REPO`).
+2. On share.streamlit.io: *Create app* → this repo, branch `main`, main file `streamlit_app.py`, Python 3.13.
+3. *Advanced settings → Secrets*:
+   ```toml
+   GEMINI_API_KEY = "..."
+   GROQ_API_KEY = "..."
+   HF_TOKEN = "..."
+   ```

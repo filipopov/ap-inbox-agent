@@ -50,9 +50,9 @@ def main():
     FROM attachments
     WHERE extract_status IN ('unreadable', 'empty', 'unsupported') OR (file_status = 'missing' AND NOT is_inline);
 
-    CREATE TABLE chases AS SELECT vendor, highest_level, chase_messages, invoices_chased, chased_invoices_in_inbox,
+    CREATE TABLE chases AS SELECT coalesce(vendor, '(vendor unknown)') AS vendor, highest_level, chase_messages, invoices_chased, chased_invoices_in_inbox,
            chased_invoices_missing, first_chased, last_chased FROM src.chases;
-    CREATE TABLE chased_invoices AS SELECT vendor, invoice_number, highest_level, first_chased, last_chased,
+    CREATE TABLE chased_invoices AS SELECT coalesce(vendor, '(vendor unknown)') AS vendor, invoice_number, highest_level, first_chased, last_chased,
            times_chased, in_inbox, source_items FROM src.chased_invoices;
 
     CREATE TABLE email_bodies AS SELECT id AS email_id, body_text FROM src.messages;

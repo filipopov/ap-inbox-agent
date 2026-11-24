@@ -109,7 +109,7 @@ A slim read-only SQLite file for the hosted agent: results tables, email bodies 
   reject tool-call history they did not produce). If every model is busy the user gets an explicit message.
   A weaker model (gpt-oss-20b) was removed after it hallucinated in testing.
 - **Transparency:** every web answer has a collapsible "How I got this" listing the tool calls and the model used.
-- **Interfaces:** web chat (Gradio, hosted on a Hugging Face Space), terminal (`agent/cli.py`), MCP server
+- **Interfaces:** web chat (Streamlit, hosted on Streamlit Community Cloud; it downloads `app.db` from a private Hugging Face dataset on first start because the file exceeds GitHub's 100 MB limit), terminal (`agent/cli.py`), MCP server
   (`agent/mcp_server.py`) exposing the same tools to any MCP client.
 
 ## 5. "Never fail silently" – where each guarantee lives
@@ -130,7 +130,7 @@ A slim read-only SQLite file for the hosted agent: results tables, email bodies 
 ## 6. Cost
 
 Everything runs on free tiers: local CPU for extraction/OCR/rules/classifier; Gemini free tier for the LLM steps
-(~6,000 items in batches); Groq + Gemini free tiers for chat; Hugging Face Spaces free CPU for hosting; GitHub.
+(~6,000 items in batches); Groq + Gemini free tiers for chat; Streamlit Community Cloud for hosting (Hugging Face Spaces now requires PRO for Python apps); a private Hugging Face dataset for the database file; GitHub.
 The price of $0 is time (the LLM pass is rate-limited to roughly an hour or two) and chat rate limits under load.
 Switching to a paid model is a configuration change (`LLM_MODELS`, `CHAT_MODELS`).
 
