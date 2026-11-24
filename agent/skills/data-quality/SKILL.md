@@ -6,7 +6,9 @@ description: How to report accuracy, unreadable/missing files and uncertainty ho
 
 - Call `data_quality_report` first; it returns coverage, unreadable/missing files, unprocessed items, low-confidence
   counts and the measured accuracy table.
-- Accuracy is measured on a hand-checked gold set (random sample, labels verified by a human). Quote metric, value
+- Accuracy is measured on a 200-item random gold set (100 emails + 100 attachments). The gold labels were made by
+  independent model graders that did not see the pipeline's answers, then spot-checked by a human. Say exactly that;
+  do not call it fully hand-labelled. Quote metric, value
   and sample size n, and mention the confidence interval note if present. If the accuracy table is empty, say accuracy
   has not been measured yet - never estimate it yourself.
 - "Which files could not be read / are missing": `SELECT problem, filename, detail, file_id, email_id FROM problem_files`.
