@@ -68,7 +68,7 @@ def merged_labels(db):
 
 
 def main():
-    db = sqlite3.connect(DB)
+    db = sqlite3.connect(DB, timeout=60)
     rows, llm, rep = merged_labels(db)
     db.executescript("""
     DROP TABLE IF EXISTS final_labels; DROP TABLE IF EXISTS invoices;
@@ -82,8 +82,12 @@ def main():
     # message context (for attachments: the first email that carried them)
     msg_of = dict(db.execute("SELECT file_id, min(message_id) FROM attachments WHERE message_id IS NOT NULL GROUP BY 1"))
     sent = dict(db.execute("SELECT id, sent_at FROM messages"))
+    sender = dict(db.execute("SELECT id, from_name FROM messages WHERE is_inbound"))
     for kind, iid, label, level, conf, by, ev, flags, vendor in rows:
         mid = iid if kind == "email" else msg_of.get(iid)
+        if not vendor and label != "other" and sender.get(mid):
+            vendor = sender[mid]  # fallback: the email sender's display name
+            flags = "; ".join(filter(None, [flags, "vendor taken from email sender"]))
         db.execute("INSERT INTO final_labels VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                    (kind, iid, label, level, conf, by, ev, flags, vendor, norm_vendor(vendor), mid, sent.get(mid)))
 
@@ -124,6 +128,9 @@ def main():
     known = {}
     for no, vk in db.execute("SELECT invoice_no_norm, vendor_key FROM invoices WHERE invoice_no_norm IS NOT NULL"):
         known.setdefault(no, set()).add(vk)
+        base = re.sub(r"(?<=\d)[A-Z]$", "", no)  # Nabis: invoice 971102-A is chased as "971102"
+        if base != no:
+            known.setdefault(base, set()).add(vk)
     statement_refs = {}
     for kind, iid, label, *_ in rows:
         a = llm.get((kind, rep.get(iid, iid) if kind == "document" else iid))
@@ -185,7 +192,14 @@ def main():
            sum(in_inbox NOT LIKE 'yes%' AND invoice_number IS NOT NULL) AS chased_invoices_missing,
            min(first_chased) AS first_chased, max(last_chased) AS last_chased
     FROM chased_invoices GROUP BY vendor_key;
+    ALTER TABLE chases ADD COLUMN chase_messages INTEGER;
     """)
+    # number of distinct reminder emails/files per vendor (a reminder may name 0..n invoices)
+    msgs = {}
+    for (vk, _), c in chased.items():
+        msgs.setdefault(vk, set()).update(c["items"])
+    for vk, items in msgs.items():
+        db.execute("UPDATE chases SET chase_messages=? WHERE vendor_key IS ?", (len(items), vk))
     db.commit()
     print(db.execute("SELECT count(*) FROM invoices").fetchone()[0], "invoice occurrences,",
           db.execute("SELECT count(*) FROM chases").fetchone()[0], "chasing vendors,",
