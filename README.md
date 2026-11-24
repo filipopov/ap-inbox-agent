@@ -77,7 +77,7 @@ The data itself (`data/`, `app/app.db`) is not in this repository.
 
 ## Deploy (Streamlit Community Cloud, free)
 
-1. Upload `app/app.db` to a private Hugging Face dataset (default `fpo14/ap-inbox-data`, override with `DATA_REPO`).
+1. `gzip -k app/app.db` and upload `app.db.gz` to a private Hugging Face dataset (default `fpo14/ap-inbox-data`, override with `DATA_REPO`).
 2. On share.streamlit.io: *Create app* → this repo, branch `main`, main file `streamlit_app.py`, Python 3.13.
 3. *Advanced settings → Secrets*:
    ```toml

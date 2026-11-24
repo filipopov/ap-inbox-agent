@@ -4,3 +4,5 @@ data/
 __pycache__/
 *.pyc
 app/app.db
+app/app.db.gz
+app/*.tmp

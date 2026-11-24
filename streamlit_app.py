@@ -23,12 +23,25 @@ def ensure_db():
     local = Path(__file__).parent / "app/app.db"
     if local.exists():
         return str(local)
+    import gzip
+    import shutil
     from huggingface_hub import hf_hub_download
-    return hf_hub_download(repo_id=os.environ.get("DATA_REPO", "fpo14/ap-inbox-data"), filename="app.db",
-                           repo_type="dataset", token=os.environ.get("HF_TOKEN"))
+    gz = hf_hub_download(repo_id=os.environ.get("DATA_REPO", "fpo14/ap-inbox-data"), filename="app.db.gz",
+                         repo_type="dataset", token=os.environ.get("HF_TOKEN"))
+    local.parent.mkdir(exist_ok=True)
+    tmp = local.with_suffix(".tmp")
+    with gzip.open(gz, "rb") as src, open(tmp, "wb") as dst:
+        shutil.copyfileobj(src, dst)
+    tmp.rename(local)  # atomic: a half-written file is never used
+    return str(local)
 
 
-os.environ["APP_DB"] = ensure_db()
+try:
+    os.environ["APP_DB"] = ensure_db()
+except Exception as e:  # shown to the user instead of a raw traceback
+    st.error(f"Could not load the inbox database ({type(e).__name__}). Check the HF_TOKEN secret and that "
+             f"app.db.gz exists in the data repository. Details: {e}")
+    st.stop()
 from agent.agent import answer  # noqa: E402  (needs APP_DB and API keys set first)
 
 EXAMPLES = [
