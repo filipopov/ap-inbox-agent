@@ -43,7 +43,7 @@ def main():
                              ON ca.item_kind='document' AND ca.item_id=a.file_id
                              WHERE a.message_id=c.item_id AND ca.label='invoice')"""
         items = db.execute(f"""SELECT 'email', item_id FROM classifications c WHERE item_kind='email' AND ({need})
-                               AND NOT (c.label='invoice' AND {has_invoice_doc})""").fetchall()
+                               AND NOT (c.label IS 'invoice' AND {has_invoice_doc})""").fetchall()
         items += db.execute(unique_docs_sql(f"c.decided_by IS NOT 'extract' AND ({need})")).fetchall()
         # free-tier quotas are per model, so split the work across several models in parallel
         models = os.environ.get("LLM_MODELS", "gemini-3.5-flash-lite,gemini-3.1-flash-lite").split(",")

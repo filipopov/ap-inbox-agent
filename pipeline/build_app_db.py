@@ -55,13 +55,17 @@ def main():
     CREATE TABLE chased_invoices AS SELECT coalesce(vendor, '(vendor unknown)') AS vendor, invoice_number, highest_level, first_chased, last_chased,
            times_chased, in_inbox, source_items FROM src.chased_invoices;
 
-    CREATE TABLE email_bodies AS SELECT id AS email_id, body_text FROM src.messages;
-    CREATE TABLE document_texts AS SELECT file_id, text FROM src.documents;
-
-    CREATE VIRTUAL TABLE search USING fts5(kind, id, title, body, tokenize = 'porter unicode61');
-    INSERT INTO search SELECT 'email', id, subject, body_text FROM src.messages;
-    INSERT INTO search SELECT 'document', d.file_id, a.filename, d.text
+    -- all text stored once; the full-text index points at it (external content) instead of copying it
+    CREATE TABLE texts (rowid INTEGER PRIMARY KEY, kind TEXT, id TEXT, title TEXT, body TEXT);
+    INSERT INTO texts (kind, id, title, body) SELECT 'email', id, subject, body_text FROM src.messages;
+    INSERT INTO texts (kind, id, title, body) SELECT 'document', d.file_id, a.filename, d.text
       FROM src.documents d JOIN src.attachments a USING (file_id) GROUP BY d.file_id;
+    CREATE INDEX ix_texts_id ON texts(id);
+    CREATE VIEW email_bodies AS SELECT id AS email_id, body AS body_text FROM texts WHERE kind = 'email';
+    CREATE VIEW document_texts AS SELECT id AS file_id, body AS text FROM texts WHERE kind = 'document';
+    CREATE VIRTUAL TABLE search USING fts5(kind, id, title, body, content = 'texts', content_rowid = 'rowid',
+                                           tokenize = 'porter unicode61');
+    INSERT INTO search (search) VALUES ('rebuild');
     """)
     if db.execute("SELECT count(*) FROM src.sqlite_master WHERE name='accuracy'").fetchone()[0]:
         db.execute("CREATE TABLE accuracy AS SELECT * FROM src.accuracy")
