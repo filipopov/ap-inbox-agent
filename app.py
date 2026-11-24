@@ -22,7 +22,7 @@ def respond(message, history):
 
 
 demo = gr.ChatInterface(
-    respond, type="messages", title="AP Inbox Agent",
+    respond, title="AP Inbox Agent",
     description="Ask about one month of an accounts-payable inbox (5,705 emails, 8,554 attachments). "
                 "Answers cite email/file IDs and flag anything unreadable, missing or uncertain.",
     examples=EXAMPLES)

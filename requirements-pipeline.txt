@@ -1,0 +1,6 @@
+-r requirements.txt
+pymupdf==2.1
+openpyxl==3.1.5
+python-docx==1.2.0
+google-genai==3.6.1
+scikit-learn==1.9.1
